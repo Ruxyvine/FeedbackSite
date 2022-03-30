@@ -4,11 +4,10 @@ import FeedbackForm from './components/FeedbackForm/FeedbackForm'
 import FeedbackList from './components/FeedbackList/FeedbackList'
 import FeedbackStat from './components/FeedbackStat/FeedbackStat'
 import Header from './components/Header/Header'
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import AboutPages from './pages/AboutPages'
-import Card from './Shared/Card'
-import AboutLinkIcon from './components/AboutLinkIcon/AboutLinkIcon'
 import Post from './components/Post/Post'
+import AboutLinkIcon from './components/AboutLinkIcon/AboutLinkIcon'
 const App = () => {
 	// const [feedback, setFeedback] = useState(FeedbackData)
 	const [feedback, setFeedback] = useState([])
@@ -21,6 +20,7 @@ const App = () => {
 	const addFeedback = newFeedback => {
 		newFeedback.id = uuidv4()
 		setFeedback([newFeedback, ...feedback])
+		console.log(newFeedback)
 	}
 	return (
 		<Router>
@@ -38,13 +38,13 @@ const App = () => {
 									feedback={feedback}
 									handleDelete={deleteFeedback}
 								/>
+								<AboutLinkIcon />
 							</>
 						}
 					></Route>
 					<Route exact path='/about' element={<AboutPages />}></Route>
-					<Route exact path='/post/:id/:name' element={<Post />}></Route>
+					<Route exact path='/post/:rating/:text' element={<Post />}></Route>
 				</Routes>
-				<AboutLinkIcon />
 			</div>
 		</Router>
 	)

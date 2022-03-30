@@ -1,14 +1,27 @@
-import { m } from 'framer-motion'
 import { useParams } from 'react-router-dom'
 import Card from '../../Shared/Card'
-
+import { NumRandom } from '../../function/NumRandom.js'
+import { randomColor } from '../../function/NumRandom.js'
 const Post = () => {
+	const arraySmile = ['🤓', '👺', '👀', '👾', '😂', '😇', '🤯', '🫥']
+
 	const params = useParams()
 
 	return (
 		<Card>
-			<h1>Post id: {params.id}</h1>
-			<p>Post name: {params.name}</p>
+			<h1 className='rating'>
+				Post Rating: {params.rating}{' '}
+				<span style={{ paddingLeft: '20px' }}>{NumRandom(arraySmile)}</span>
+			</h1>
+			<p
+				style={{
+					fontSize: '20px',
+					fontWeight: '600',
+					color: `${randomColor()}`,
+				}}
+			>
+				Post text: {params.text}
+			</p>
 		</Card>
 	)
 }

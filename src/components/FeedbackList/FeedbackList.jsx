@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import FeedBackItem from '../FeedBackItem/FeedBackItem'
+import FeedbackItem from '../FeedbackItem/FeedbackItem'
 import PropTypes from 'prop-types'
 
 const FeedbackList = ({ feedback, handleDelete }) => {
@@ -16,7 +16,7 @@ const FeedbackList = ({ feedback, handleDelete }) => {
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
 					>
-						<FeedBackItem
+						<FeedbackItem
 							handleDelete={() => handleDelete(item.id)}
 							key={item.id}
 							item={item}
@@ -31,7 +31,7 @@ const FeedbackList = ({ feedback, handleDelete }) => {
 FeedbackList.propTypes = {
 	feedback: PropTypes.arrayOf(
 		PropTypes.shape({
-			id: PropTypes.number.isRequired,
+			id: PropTypes.string.isRequired,
 			text: PropTypes.string.isRequired,
 			rating: PropTypes.number.isRequired,
 		})

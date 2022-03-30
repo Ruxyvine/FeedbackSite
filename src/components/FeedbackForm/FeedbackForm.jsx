@@ -10,10 +10,10 @@ const FeedbackForm = ({ handleAdd }) => {
 	const [rating, setRating] = useState(10)
 
 	const handleTextChange = e => {
-		if (text === '') {
+		if (text.trim() === '') {
 			setBtnDisabled(true)
 			setMessage(null)
-		} else if (text !== '' && text.trim().length <= 10) {
+		} else if (text.trim() !== '' && text.trim().length <= 10) {
 			setMessage('Text must be at least 10 character')
 			setBtnDisabled(true)
 		} else {

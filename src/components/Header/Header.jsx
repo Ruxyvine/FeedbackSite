@@ -1,4 +1,5 @@
 import PropType from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const Header = ({ text, bgColor, textColor }) => {
 	const headerStyle = {
@@ -8,7 +9,9 @@ const Header = ({ text, bgColor, textColor }) => {
 	return (
 		<header style={headerStyle}>
 			<div className='container'>
-				<h2>{text}</h2>
+				<Link style={{ color: textColor }} to='/'>
+					<h2>{text}</h2>
+				</Link>
 			</div>
 		</header>
 	)

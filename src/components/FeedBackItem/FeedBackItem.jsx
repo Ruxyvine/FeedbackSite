@@ -2,7 +2,7 @@ import { FaTimes } from 'react-icons/fa'
 import PropTypes from 'prop-types'
 import Card from '../../Shared/Card'
 
-const FeedBackItem = ({ item, handleDelete }) => {
+const FeedbackItem = ({ item, handleDelete }) => {
 	return (
 		<Card>
 			<div className='num-display'>{item.rating}</div>
@@ -13,8 +13,8 @@ const FeedBackItem = ({ item, handleDelete }) => {
 		</Card>
 	)
 }
-FeedBackItem.propTypes = {
+FeedbackItem.propTypes = {
 	item: PropTypes.object.isRequired,
 }
 
-export default FeedBackItem
+export default FeedbackItem
